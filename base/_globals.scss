@@ -1,0 +1,48 @@
+/**
+ * $GLOBALS
+ * ==========================================================================
+ * Here are any base styles added to all elements (*), <html> or <body>.
+ * If adding a background image or color to the body, I'd suggest doing
+ * that here as well.
+ */
+
+html {
+	font-size: 100%;
+}
+
+body {
+	@include px-rem(font-size, $base-font-size);
+	/*
+	* if needed uncomment/copy
+		@include bp(medium) {
+			@include px-rem(font-size, $base-font-size-s);
+		}
+	*/
+	line-height: $base-line-height;
+	font-family: $base-font-family;
+	color: $ui-font-main;
+}
+
+@if $border-box-global == true {
+	* {
+		&,
+		&:before,
+		&:after {
+			@include vendor(box-sizing, border-box);
+		}
+	}
+}
+
+@if $use-custom-selection == true {
+	::-moz-selection {
+		background: $ui-selection;
+		color: $ui-selection-text;
+		text-shadow: none;
+	}
+
+	::selection {
+		background: $ui-selection;
+		color: $ui-selection-text;
+		text-shadow: none;
+	}
+}

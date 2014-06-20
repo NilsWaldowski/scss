@@ -1,0 +1,23 @@
+ul, ol, dd {
+	@include list-reset; //set "$margin-bottom" true in order to reset it also --> @include list-reset($margin-bottom: true);
+}
+
+ul, ol {
+	li {
+		@extend %mb1;
+	}
+}
+
+ol {
+	list-style: decimal;
+}
+
+
+dl {
+	dt {
+		font-weight: bold;
+	}
+	dd {
+		margin-left: 0;
+	}
+}

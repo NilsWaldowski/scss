@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    $SHARED
+\*------------------------------------*/
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+/**
+ * Base elements
+ */
+@if $use-global-spacing == true {
+	//h1,h2,h3,h4,h5,h6,hgroup,
+	ul,ol,dl,
+	blockquote,p,address,
+	table,
+	fieldset,figure,
+	pre,
+		/**
+		 * Objects and abstractions
+		 */
+	%sass-margin-bottom,
+	.media,
+	.island,
+	.islet{
+		@extend %margin-reset;
+		@include px-rem(margin-bottom, $space);
+		.islet &{
+			@include px-rem(margin-bottom, $space-half);
+		}
+	}
+
+	.csc-default {
+		@extend %margin-reset;
+		@include px-rem(margin-bottom, $space);
+	}
+
+	p, ul, ol, dl, dd, address, li, a, .island, .islet, .media,  {
+		&:last-of-type {
+			//margin-bottom: 0;
+		}
+	}
+
+	/**
+	 * Doubled up `margin-bottom` helper class.
+	 */
+	.landmark {
+		@include px-rem(margin-bottom, $space-double);
+	}
+
+
+	/**
+	 * `hr` elements only take up a few pixels, so we need to give them special
+	 * treatment regarding vertical rhythm.
+	 */
+	hr, .rule, .csc-frame-rulerAfter, .csc-frame-rulerBefore {
+		margin-top: 0;
+		margin-bottom:$base-spacing-unit - 1px;
+		margin-bottom:(($base-spacing-unit - 1px) / $base-font-size)*1rem;
+		@extend %margin-reset;
+		@include px-rem(margin-bottom, $space -1);
+	}
+
+	.csc-frame-rulerAfter {
+		@include px-rem(padding-bottom, $pad -1);
+	}
+
+	.csc-frame-rulerBefore {
+		@include px-rem(padding-top, $pad -1);
+	}
+
+	/**
+	 * Where `margin-left` is concerned we want to try and indent certain elements
+	 * by a consistent amount. Define that amount once, here.
+	 */
+	ul.rte-ul, ol.rte_ol , dl.rte_dl {
+		@extend %margin-reset;
+		@include px-rem(margin-bottom, $space);
+	}
+
+}

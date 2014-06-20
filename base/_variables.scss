@@ -1,0 +1,147 @@
+/*------------------------------------*\
+    $OBJECTS AND ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * Which objects and abstractions would you like to use?
+ */
+$use-grids:				true!default;
+$use-rules:				true!default;
+
+
+/**
+ * Set global border-box? (True/False)
+ * --------------------------------------------------------------------------
+ * This will apply "*, *:before, *:after { box-sizing: border-box }" in
+ * "_scaffolding.scss" if set to true, and is necessary if using Vitamin F.
+ */
+$border-box-global: 	true!default;
+
+/**
+ * Utility font sizes
+ * --------------------------------------------------------------------------
+ */
+$base-font-size:		16;
+$base-font-size-xs:		$base-font-size - 4;
+$base-font-size-s:		$base-font-size - 2;
+$base-font-size-l:		$base-font-size + 2;
+$base-font-size-xl:		$base-font-size + 4;
+$base-line-height:		1.5;
+
+/**
+ * Base font-family.
+ */
+$base-font-family:		Georgia ,serif!default;
+
+/**
+ * Heading font sizes
+ * --------------------------------------------------------------------------
+ * All headings as well as "<hgroup>" are styled in "elements/_rte_headings.scss".
+ */
+
+$h1-size:			37!default; // .h1
+$h1-line:			$base-line-height - 0.4;
+
+$h2-size:			32!default; // .h2
+$h2-line:			$base-line-height - 0.4;
+
+$h3-size:			30!default; // .h3
+$h3-line:			$base-line-height - 0.4;
+
+$h4-size:			28!default; // .h4
+$h4-line:			$base-line-height - 0.4;
+
+$h5-size:			26!default; // .h5
+$h5-line:			$base-line-height - 0.4;
+
+$h6-size:			24!default; // .h6
+$h6-line:			$base-line-height - 0.4;
+
+
+/**
+ * Tell CPS-Framework when breakpoints start.
+ * --------------------------------------------------------------------------
+ * You can add more breakpoints in /css/scss/base/_mixins.scss --> @mixin bp
+ */
+
+$mobile-first:		true!default; //if mobile first is true the breakpoints values are min-values
+
+$bp-small:			520px!default; // max-width breakpoint
+$bp-medium:			960px!default; // max-width breakpoint
+$bp-large:			1024px!default; // min-width breakpoint
+$bp-larger:			1280px!default;
+
+/**
+ * Base spacing units
+ * --------------------------------------------------------------------------
+ * This base spacing unit will be primarily used for bottom margins on most
+ * base HTML elements. This is applied in the "elements/_rte_shared.scss" file.
+ * The half spacing unit is primarily used for margins on floated objects
+ * and form fields.
+ */
+$use-global-spacing: false!default;
+
+$space:				16;
+$space-and-half:	$space * 1.5;
+$space-double:		$space * 2;
+$space-triple:		$space * 3;
+$space-quad:		$space * 4;
+$space-half:		$space / 2;
+$space-quarter:		$space / 4;
+$pad:				16;
+$pad-and-half:		$pad * 1.5;
+$pad-double:		$pad * 2;
+$pad-half:			$pad / 2;
+$pad-quarter:		$pad / 4;
+
+/**
+ * Base UI colors
+ * --------------------------------------------------------------------------
+ * This $ui-color is simply serving as a placeholder, and is not used.
+ * Go ahead and start creating your projects own color pallette to be applied
+ * to your modifier classes.
+ */
+// todo: farben aufräumen
+$ui-font-familiy:		'Droid Serif', serif;
+$ui-font-familiy-head:	'Droid Serif', serif;
+$ui-font-familiy-lead:	'Lobster', cursive;
+$ui-grey-light:			#f9f9f9!default;
+$ui-grey-dark:			#4c4c4c!default;
+
+$ui-font-main:			#333!default;
+$ui-font-link:			lightblue!default;
+$ui-font-white:			#fff!default;
+
+
+// todo: startpunkte für die bleibenden farben
+$ui-font-ph:			grey!default;
+
+$ui-bg-form:			grey!default;
+$ui-bg-form-dark:		darken( $ui-bg-form, 05% );
+
+$ui-border:				#333; 			//usesd in tables
+$ui-round:				6px!default;
+
+//buttons
+$ui-button-bg:			grey!default;
+$ui-button-font:		#fff!default;
+
+// tables
+$ui-table-border:		$ui-border;
+$ui-table-head:			#fff!default;
+$ui-table-head-bg:		#333!default;
+$ui-table-font:			$ui-font-main!default;
+$ui-table-odd-bg:		#eee!default;
+$ui-table-even-bg:		#fff!default;
+
+$use-custom-selection:	true!default;
+$ui-selection:			#333;
+$ui-selection-text:		#fff;
+
+/**
+ * z-Index
+ * --------------------------------------------------------------------------
+ */
+$zLogo:					-1;
+$zHeader:				2000;
+$zOverlay:				5000;
+$zMessage:				5050;

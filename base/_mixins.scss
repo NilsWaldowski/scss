@@ -1,0 +1,143 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+
+
+/**
+ * CSS Transition
+ * * Usage: @include transition(width,0.3s,ease-out);
+ * --------------------------------------------------------------------------
+ */
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+
+/**
+ * PxToRm
+ * --------------------------------------------------------------------------
+ */
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+@mixin px-rem($property, $values, $main-font-size: 16) {
+	// Empty list for all values in px
+	$px-values: ();
+	$rem-values: ();
+
+	// Iterate over entries
+	@each $value in $values {
+
+		// If the value is zero, return 0
+		@if $value == 0 or type_of($value) != number {
+			$px-values: append($px-values, $value);
+			$rem-values: append($rem-values, $value);
+
+			// If the value is not zero, convert it from px to rem
+		} @else {
+			$px-values: append($px-values, #{$value}px);
+			$rem-values: append($rem-values, ($value/$main-font-size)+rem);
+		}
+	}
+
+	// Return the property and its list of converted values
+	#{$property}: #{$px-values};
+	#{$property}: #{$rem-values};
+}
+
+/**
+ * Headings
+ * --------------------------------------------------------------------------
+ */
+@mixin headings($from: 1, $to: 6) {
+	%base-heading {
+		@content
+	}
+	@if $from >= 1 and $to <= 6{
+		@for $i from $from through $to {
+			h#{$i}{
+				@extend %base-heading;
+			}
+		}
+	}
+}
+
+/**
+ * Unstyled Lists
+ * --------------------------------------------------------------------------
+ */
+@mixin list-reset($margin-bottom:false) {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	@if $margin-bottom == true {
+		margin-bottom: 0;
+	}
+}
+
+/**
+ * Vendor Prefixer
+ * --------------------------------------------------------------------------
+ */
+@mixin vendor($property, $value...) {
+	-webkit-#{$property}:$value;
+	-moz-#{$property}:$value;
+	-ms-#{$property}:$value;
+	-o-#{$property}:$value;
+	#{$property}:$value;
+}
+
+/**
+ * Breakpoints
+ * --------------------------------------------------------------------------
+ */
+@mixin bp($media-query){
+	@if $ielt9 == false { // no media queries for you Mr. IE8!
+
+		@if $mobile-first == false {
+
+
+			@if $media-query == larger {
+				@media only screen and (max-width:$bp-large) { @content; }
+			}
+
+			@if $media-query == large {
+				@media only screen and (max-width:$bp-large) { @content; }
+			}
+			@else if $media-query == small {
+				@media only screen and (max-width:$bp-small) { @content; }
+			}
+			@else if $media-query == medium {
+				@media only screen and (max-width:$bp-medium) { @content; }
+			}
+			@else {
+				@media only screen and (max-width:$media-query) { @content; }
+			}
+
+		} @else {
+
+			@if $media-query == larger {
+				@media only screen and (min-width:$bp-large) { @content; }
+			}
+
+			@if $media-query == large {
+				@media only screen and (min-width:$bp-large) { @content; }
+			}
+			@else if $media-query == small {
+				@media only screen and (min-width:$bp-small) { @content; }
+			}
+			@else if $media-query == medium {
+				@media only screen and (min-width:$bp-medium) { @content; }
+			}
+			@else {
+				@media only screen and (min-width:$media-query) { @content; }
+			}
+
+		}
+	}
+}

@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+/**
+ * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * When we define a heading we also define a corresponding class to go with it.
+ * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
+ * heading hierarchy.
+ */
+
+@include headings(1, 6) {
+	@extend %margin-reset;
+}
+
+h1,.h1 {
+	@include px-rem(font-size, $h1-size);
+	line-height: $h1-line;
+}
+h2,.h2 {
+	@include px-rem(font-size, $h2-size);
+	line-height: $h2-line;
+}
+h3,.h3 {
+	@include px-rem(font-size, $h3-size);
+	line-height: $h3-line;
+}
+h4,.h4 {
+	@include px-rem(font-size, $h4-size);
+	line-height: $h4-line;
+}
+h5,.h5 {
+	@include px-rem(font-size, $h5-size);
+	line-height: $h5-line;
+}
+h6,.h6 {
+	@include px-rem(font-size, $h6-size);
+	line-height: $h6-line;
+}
+
+
+/**
+ * Heading Groups
+ * --------------------------------------------------------------------------
+ * Here, we remove heading margins when inside a header group so they stack
+ * nicely. The heading group contains its' own margin, which is set in the
+ * shared file.
+ *
+ * Note: We are using the headings mixin to select all headers in one swoop.
+ */
+hgroup,.hgroup {
+	@include headings(1, 6) {
+		margin-bottom: 0;
+	}
+}

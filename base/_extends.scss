@@ -1,0 +1,382 @@
+// Project Helper Extends
+// ==========================================================================
+
+
+// Box & Displays
+// ==========================================================================
+%clearfix {
+	&:after {
+		display: table;
+		content: "";
+		clear: both;
+	}
+}
+
+%sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+%block {
+	display: block;
+}
+
+%inline {
+	display: inline;
+}
+
+%inline-block {
+	display: inline-block;
+}
+
+%none {
+	display: none;
+}
+
+%visible {
+	visibility: visible;
+}
+
+%no-visible {
+	visibility: hidden;
+}
+
+// floats
+%fl {
+	float: left;
+}
+
+%fr {
+	float: right;
+}
+
+// margin
+%margin-reset {
+	margin: 0;
+}
+
+%margin-centered {
+	margin: 0 auto;
+}
+
+%padding-reset {
+	padding: 0;
+}
+
+%mt0 {
+	margin-top: 0;
+}
+
+%mt1 {
+	margin-top: 10px;
+}
+
+%mt2 {
+	margin-top: 20px;
+}
+
+%mb0 {
+	margin-bottom: 0;
+}
+
+%mb1 {
+	margin-bottom: 10px;
+}
+
+%mb2 {
+	margin-bottom: 20px;
+}
+
+// border
+%no-border {
+	border: none;
+}
+
+// Position
+@mixin absolute($x: 0, $y: 0) {
+	position: absolute;
+	top: $x;
+	left: $y;
+}
+
+@mixin fixed($x: 0, $y: 0) {
+	position: fixed;
+	top: $x;
+	left: $y;
+}
+
+%relative {
+	position: relative;
+}
+
+%fixed {
+	position: fixed;
+}
+
+%absolute {
+	position: absolute;
+}
+
+%static {
+	position: static;
+}
+
+
+// Widths
+// ==========================================================================
+%one-whole {
+	width: 100%;
+}
+
+// Halves
+%one-half {
+	width: 50%;
+}
+
+// Thirds
+%one-third {
+	width: 33.333%;
+}
+
+%two-thirds {
+	width: 66.666%;
+}
+
+// Quarters
+%one-quarter {
+	width: 25%;
+}
+
+%two-quarters {
+	@extend %one-half;
+}
+
+%three-quarters {
+	width: 75%;
+}
+
+// Fifths
+%one-fifth {
+	width: 20%;
+}
+
+%two-fifths {
+	width: 40%;
+}
+
+%three-fifths {
+	width: 60%;
+}
+
+%four-fifths {
+	width: 80%;
+}
+
+// Sixths
+%one-sixth {
+	width: 16.666%;
+}
+
+%two-sixths {
+	@extend %one-third;
+}
+
+%three-sixths {
+	@extend %one-half;
+}
+
+%four-sixths {
+	@extend %two-thirds;
+}
+
+%five-sixths {
+	width: 83.333%;
+}
+
+// Eighths
+%one-eighth {
+	width: 12.5%;
+}
+
+%two-eighths {
+	@extend %one-quarter;
+}
+
+%three-eighths {
+	width: 37.5%;
+}
+
+%four-eighths {
+	@extend %one-half;
+}
+
+%five-eighths {
+	width: 62.5%;
+}
+
+%six-eighths {
+	@extend %three-quarters;
+}
+
+%seven-eighths {
+	width: 87.5%;
+}
+
+// Tenths
+%one-tenth {
+	width: 10%;
+}
+
+%two-tenths {
+	@extend %one-fifth;
+}
+
+%three-tenths {
+	width: 30%;
+}
+
+%four-tenths {
+	@extend %two-fifths;
+}
+
+%five-tenths {
+	@extend %one-half;
+}
+
+%six-tenths {
+	@extend %three-fifths;
+}
+
+%seven-tenths {
+	width: 70%;
+}
+
+%eight-tenths {
+	@extend %four-fifths;
+}
+
+%nine-tenths {
+	width: 90%;
+}
+
+// Twelfths
+%one-twelfth {
+	width: 8.333%;
+}
+
+%two-twelfths {
+	@extend %one-sixth;
+}
+
+%three-twelfths {
+	@extend %one-quarter;
+}
+
+%four-twelfths {
+	@extend %one-third;
+}
+
+%five-twelfths {
+	width: 41.666%
+}
+
+%six-twelfths {
+	@extend %one-half;
+}
+
+%seven-twelfths {
+	width: 58.333%;
+}
+
+%eight-twelfths {
+	@extend %two-thirds;
+}
+
+%nine-twelfths {
+	@extend %three-quarters;
+}
+
+%ten-twelfths {
+	@extend %five-sixths;
+}
+
+%eleven-twelfths {
+	width: 91.666%;
+}
+
+
+
+// Cursor
+// ==========================================================================
+%cursor-auto {
+	cursor: auto;
+}
+
+%cursor-default {
+	cursor: default;
+}
+
+%cursor-help {
+	cursor: help;
+}
+
+%cursor-pointer {
+	cursor: pointer;
+}
+
+// Text
+// ==========================================================================
+%normal {
+	font-weight: normal;
+}
+
+%bold {
+	font-weight: bold;
+}
+
+%italic {
+	font-style: italic;
+}
+
+%underline {
+	text-decoration: underline;
+}
+
+%no-underline {
+	text-decoration: none;
+}
+
+%uppercase {
+	text-transform: uppercase;
+}
+
+%justify {
+	text-align: justify;
+}
+
+%left-text {
+	text-align: left;
+}
+
+%right-text {
+	text-align: right;
+}
+
+%center-text {
+	text-align: center;
+}
+
+%no-style {
+	font-style: normal;
+}
+
+// Colors
+// ==========================================================================
+%black {
+	color: #000000;
+}
+
+%white {
+	color: #FFFFFF;
+}
