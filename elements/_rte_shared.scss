@@ -55,8 +55,6 @@
 	 */
 	hr, .rule, .csc-frame-rulerAfter, .csc-frame-rulerBefore {
 		margin-top: 0;
-		margin-bottom:$base-spacing-unit - 1px;
-		margin-bottom:(($base-spacing-unit - 1px) / $base-font-size)*1rem;
 		@extend %margin-reset;
 		@include px-rem(margin-bottom, $space -1);
 	}
