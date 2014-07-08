@@ -78,7 +78,7 @@ $bp-larger:			1280px!default;
  * The half spacing unit is primarily used for margins on floated objects
  * and form fields.
  */
-$use-global-spacing: false!default;
+$use-global-spacing: true!default;
 
 $space:				16;
 $space-and-half:	$space * 1.5;
